@@ -51,47 +51,15 @@ const showAuthor = ref(false);
 const showDesc = ref(false);
 
 onMounted(async () => {
-  // Fetch all articles from homePage.json to get the list of IDs
-  const homeResp = await fetch('/src/mock-data/homePage.json').then(r => r.json());
-  const articles = homeResp.data.articles || [];
-  // Find the articleId from the route
   const articleId = route.params.articleId;
-  // If the articleId matches the one in article.json, fetch article.json for full details
-  if (articleId === 'a2b448sq') {
-    const resp = await fetch('/src/mock-data/article.json').then(r => r.json());
-    const data = resp.data;
-    article.value = {
-      articleId: data.articleId,
-      title: data.title,
-      subtitle: data.subtitle || data.Subtitle,
-      hero: data.hero,
-      authorId: data.author.authorId,
-      authorName: data.author.authorName,
-      authorImage: data.author.authorImage,
-      categoryId: data.category.categoryId,
-      categoryName: data.category.categoryName,
-      published: data.published,
-      tags: data.tags,
-      description: data.description,
-      summary: data.summary,
-      articleType: data.articleType
-    };
-    // Fetch category name from categories.json if not present
-    if (!article.value.categoryName) {
-      const catResp = await fetch('/src/mock-data/categories.json').then(r => r.json());
-      const categories = catResp.data.categories || [];
-      const cat = categories.find(c => c.id === article.value.categoryId);
-      categoryName.value = cat ? cat.name : '';
-    } else {
-      categoryName.value = article.value.categoryName;
-    }
-  } else {
-    // fallback: find from article.json for all articles
+  if (articleId) {
     const resp = await fetch('/src/mock-data/article.json').then(r => r.json());
     const articlesArr = Array.isArray(resp.data) ? resp.data : [resp.data];
     article.value = articlesArr.find(a => a.articleId === articleId);
     if (article.value) {
       categoryName.value = article.value.category?.categoryName || '';
+    } else {
+      article.value = null;
     }
   }
 });
