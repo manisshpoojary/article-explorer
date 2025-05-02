@@ -30,30 +30,90 @@ const props = defineProps({
 </script>
 
 <style scoped>
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 .article-item {
-  border-bottom: 1px solid #eee;
-  padding: 1em 0;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(60,60,60,0.08);
+  background: #fff;
+  margin-bottom: 1.5em;
+  padding: 1.2em 1.5em;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  align-items: stretch;
+  min-height: 120px;
+}
+.article-item:hover {
+  box-shadow: 0 6px 24px rgba(60,60,60,0.16);
+  transform: translateY(-2px) scale(1.01);
 }
 .article-row {
   display: flex;
   align-items: flex-start;
-  gap: 1em;
+  gap: 1.5em;
+  width: 100%;
 }
 .hero-img {
-  width: 120px;
-  height: 80px;
+  width: 100%;
+  max-width: 140px;
+  height: 100%;
+  max-height: 120px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
   flex-shrink: 0;
+  background: #f6f6f6;
+  align-self: stretch;
 }
 .article-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+h3 {
+  margin: 0 0 0.2em 0;
+  font-size: 1.25em;
+  color: #222;
+  font-weight: 700;
+}
+.subtitle {
+  color: #6c757d;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  font-weight: 500;
+}
+p {
+  margin: 0.2em 0 0.2em 0;
+  color: #444;
+  font-size: 1em;
 }
 .tag {
-  background: #f0f0f0;
+  background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%);
   border-radius: 4px;
-  padding: 0.2em 0.5em;
+  padding: 0.2em 0.7em;
   margin-right: 0.5em;
-  font-size: 0.9em;
+  font-size: 0.92em;
+  color: #3b82f6;
+  font-weight: 500;
+  display: inline-block;
+}
+@media (max-width: 600px) {
+  .article-row {
+    flex-direction: column;
+    gap: 0.7em;
+  }
+  .hero-img {
+    width: 100%;
+    max-width: 100%;
+    height: 160px;
+    max-height: 160px;
+  }
+  .article-item {
+    padding: 1em 0.7em;
+  }
 }
 </style>
