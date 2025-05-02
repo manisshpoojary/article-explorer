@@ -110,14 +110,20 @@ const activeFilters = computed(() => {
 });
 
 const onFilterChange = (newFilters) => {
+  // Merge new filters with the current filters
   filters.value = { ...filters.value, ...newFilters };
-  // Update the route to reflect the selected filter
-  if (newFilters.tag) {
-    router.push({ name: 'TagArticles', params: { tag: newFilters.tag } });
-  } else if (newFilters.category) {
-    router.push({ name: 'CategoryArticles', params: { categoryId: newFilters.category } });
-  } else if (newFilters.author) {
-    router.push({ name: 'AuthorArticles', params: { author: newFilters.author } });
+  // Build params for route based on all active filters
+  const params = {};
+  if (filters.value.tag) params.tag = filters.value.tag;
+  if (filters.value.category) params.categoryId = filters.value.category;
+  if (filters.value.author) params.author = filters.value.author;
+  // Prefer tag > category > author for route naming
+  if (filters.value.tag) {
+    router.push({ name: 'TagArticles', params });
+  } else if (filters.value.category) {
+    router.push({ name: 'CategoryArticles', params });
+  } else if (filters.value.author) {
+    router.push({ name: 'AuthorArticles', params });
   } else {
     router.push({ name: 'Home' });
   }
