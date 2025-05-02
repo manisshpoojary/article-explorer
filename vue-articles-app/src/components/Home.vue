@@ -131,22 +131,71 @@ const onFilterChange = (newFilters) => {
 
 function clearTagFilter() {
   filters.value = { ...filters.value, tag: '' };
-  router.push({ name: 'Home' });
+  // Remove tag from route params but keep others
+  const params = {};
+  if (filters.value.category) params.categoryId = filters.value.category;
+  if (filters.value.author) params.author = filters.value.author;
+  if (filters.value.type) params.type = filters.value.type;
+  if (params.categoryId) {
+    router.push({ name: 'CategoryArticles', params });
+  } else if (params.author) {
+    router.push({ name: 'AuthorArticles', params });
+  } else if (params.type) {
+    router.push({ name: 'Home', params });
+  } else {
+    router.push({ name: 'Home' });
+  }
 }
 
 function clearCategoryFilter() {
   filters.value = { ...filters.value, category: '' };
-  router.push({ name: 'Home' });
+  const params = {};
+  if (filters.value.tag) params.tag = filters.value.tag;
+  if (filters.value.author) params.author = filters.value.author;
+  if (filters.value.type) params.type = filters.value.type;
+  if (params.tag) {
+    router.push({ name: 'TagArticles', params });
+  } else if (params.author) {
+    router.push({ name: 'AuthorArticles', params });
+  } else if (params.type) {
+    router.push({ name: 'Home', params });
+  } else {
+    router.push({ name: 'Home' });
+  }
 }
 
 function clearAuthorFilter() {
   filters.value = { ...filters.value, author: '' };
-  router.push({ name: 'Home' });
+  const params = {};
+  if (filters.value.tag) params.tag = filters.value.tag;
+  if (filters.value.category) params.categoryId = filters.value.category;
+  if (filters.value.type) params.type = filters.value.type;
+  if (params.tag) {
+    router.push({ name: 'TagArticles', params });
+  } else if (params.categoryId) {
+    router.push({ name: 'CategoryArticles', params });
+  } else if (params.type) {
+    router.push({ name: 'Home', params });
+  } else {
+    router.push({ name: 'Home' });
+  }
 }
 
 function clearTypeFilter() {
   filters.value = { ...filters.value, type: '' };
-  router.push({ name: 'Home' });
+  const params = {};
+  if (filters.value.tag) params.tag = filters.value.tag;
+  if (filters.value.category) params.categoryId = filters.value.category;
+  if (filters.value.author) params.author = filters.value.author;
+  if (params.tag) {
+    router.push({ name: 'TagArticles', params });
+  } else if (params.categoryId) {
+    router.push({ name: 'CategoryArticles', params });
+  } else if (params.author) {
+    router.push({ name: 'AuthorArticles', params });
+  } else {
+    router.push({ name: 'Home' });
+  }
 }
 
 function clearAllFilters() {
