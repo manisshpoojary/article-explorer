@@ -1,4 +1,8 @@
 <template>
+  <button class="back-btn" @click="goBack">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back
+  </button>
   <div v-if="article" class="article-detail">
     <div class="detail-hero-container">
       <img v-if="article.hero" :src="article.hero" class="detail-hero" alt="hero" />
@@ -75,6 +79,10 @@ function goToCategory(categoryId) {
 function goToAuthor(author) {
   router.push({ name: 'AuthorArticles', params: { author } });
 }
+
+function goBack() {
+  window.history.length > 1 ? router.back() : router.push({ name: 'Home' });
+}
 </script>
 
 <style scoped>
@@ -84,7 +92,9 @@ function goToAuthor(author) {
   box-shadow: 0 4px 24px rgba(60,60,60,0.13);
   padding: 2.5em 2em 2em 2em;
   margin: 2em auto;
-  max-width: 750px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
   text-align: left;
   position: relative;
   animation: fadeIn 0.5s;
@@ -240,6 +250,25 @@ function goToAuthor(author) {
   color: #e53e3e;
   margin: 3em 0;
   font-size: 1.3em;
+}
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background: #e0e7ff;
+  color: #2563eb;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 1.2em;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(60,60,60,0.07);
+  transition: background 0.18s;
+}
+.back-btn:hover {
+  background: #dbeafe;
 }
 @media (max-width: 700px) {
   .article-detail {

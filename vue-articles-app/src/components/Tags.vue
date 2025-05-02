@@ -20,12 +20,14 @@ onMounted(async () => {
 
 <style scoped>
 .page {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(60,60,60,0.07);
   padding: 2em 1.5em;
   margin: 2em auto;
-  max-width: 600px;
 }
 .tags-list {
   display: flex;
