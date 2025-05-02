@@ -1,4 +1,9 @@
 <template>
+  <div class="active-filters" v-if="activeFilters.length">
+    <span v-for="filter in activeFilters" :key="filter.label" class="active-filter">
+      {{ filter.label }}: <strong>{{ filter.value }}</strong>
+    </span>
+  </div>
   <FilterBar
     :categories="categories"
     :authors="authors"
@@ -10,10 +15,12 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import ArticleList from './ArticleList.vue';
 import FilterBar from './FilterBar.vue';
 
+const route = useRoute();
 const articles = ref([]);
 const categories = ref([]);
 const authors = ref([]);
@@ -36,12 +43,26 @@ const loadData = async () => {
     tags: article.tags || []
   }));
   categories.value = [...new Set(articlesData.map(a => a.categoryId))];
-  // Fix: Only show unique author names for filter
   authors.value = [...new Set(articlesData.map(a => a.authorName))];
   types.value = [...new Set(articlesData.map(a => a.articleType))];
-  // Fix: Only show unique tags, flattening all tags from all articles
   tags.value = [...new Set(articlesData.flatMap(a => a.tags || []))];
+
+  // Set filter from route if present
+  if (route.params.tag) {
+    filters.value = { ...filters.value, tag: route.params.tag };
+  } else if (route.params.categoryId) {
+    filters.value = { ...filters.value, category: route.params.categoryId };
+  } else if (route.params.author) {
+    filters.value = { ...filters.value, author: route.params.author };
+  } else {
+    filters.value = { category: '', type: '', author: '', tag: '' };
+  }
 };
+
+// Watch for route changes to update filters
+watch(() => route.params, () => {
+  loadData();
+});
 
 const filteredArticles = computed(() => {
   return articles.value.filter(article => {
@@ -55,6 +76,25 @@ const filteredArticles = computed(() => {
   });
 });
 
+const activeFilters = computed(() => {
+  const filtersArr = [];
+  if (filters.value.category) {
+    // Map categoryId to name
+    const cat = categories.value.find(c => c === filters.value.category || c.id === filters.value.category);
+    filtersArr.push({ label: 'Category', value: cat?.name || filters.value.category });
+  }
+  if (filters.value.type) {
+    filtersArr.push({ label: 'Type', value: filters.value.type });
+  }
+  if (filters.value.author) {
+    filtersArr.push({ label: 'Author', value: filters.value.author });
+  }
+  if (filters.value.tag) {
+    filtersArr.push({ label: 'Tag', value: filters.value.tag });
+  }
+  return filtersArr;
+});
+
 const onFilterChange = (newFilters) => {
   filters.value = { ...filters.value, ...newFilters };
 };
@@ -64,4 +104,19 @@ onMounted(loadData);
 
 <style scoped>
 /* Add your styles here */
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-bottom: 1em;
+  font-size: 1.08em;
+}
+.active-filter {
+  background: #e0e7ff;
+  color: #2563eb;
+  border-radius: 6px;
+  padding: 0.3em 1em;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(60,60,60,0.04);
+}
 </style>
