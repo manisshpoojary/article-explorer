@@ -7,7 +7,10 @@
       <span v-else-if="filter.label === 'Author'" class="clear-icon" @click="clearAuthorFilter">✕</span>
       <span v-else-if="filter.label === 'Type'" class="clear-icon" @click="clearTypeFilter">✕</span>
     </span>
-    <span class="clear-all" @click="clearAllFilters">Clear All</span>
+    <span class="clear-all" @click="clearAllFilters">
+      <svg class="clear-all-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#2563eb"/><path d="M7 7L13 13M13 7L7 13" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      <span class="clear-all-text">Clear All</span>
+    </span>
   </div>
   <FilterBar
     :categories="categories"
@@ -238,18 +241,34 @@ onMounted(loadData);
   color: #1d4ed8;
 }
 .clear-all {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
   margin-left: 1.5em;
   color: #fff;
-  background: #2563eb;
-  border-radius: 6px;
-  padding: 0.2em 1em;
-  font-size: 0.98em;
-  font-weight: 500;
+  background: linear-gradient(90deg, #2563eb 60%, #60a5fa 100%);
+  border-radius: 999px;
+  padding: 0.35em 1.3em 0.35em 1em;
+  font-size: 1em;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
-  box-shadow: 0 1px 3px rgba(60,60,60,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(60,60,60,0.10);
+  border: none;
+  outline: none;
 }
 .clear-all:hover {
-  background: #1d4ed8;
+  background: linear-gradient(90deg, #1d4ed8 60%, #3b82f6 100%);
+  box-shadow: 0 4px 16px rgba(60,60,60,0.13);
+}
+.clear-all-icon {
+  width: 1.2em;
+  height: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+}
+.clear-all-text {
+  vertical-align: middle;
+  letter-spacing: 0.5px;
 }
 </style>
