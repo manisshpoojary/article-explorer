@@ -18,6 +18,7 @@ const loadData = async () => {
   articles.value = articlesData.map(article => ({
     id: article.articleId,
     title: article.title,
+    subtitle: article.subtitle, // <-- ensure subtitle is mapped
     hero: article.hero,
     categoryId: article.categoryId,
     authorId: article.authorId,
