@@ -1,7 +1,7 @@
 <template>
   <div v-if="article" class="article-detail">
+    <h1 class="detail-title">{{ article.title }}</h1>
     <img v-if="article.hero" :src="article.hero" class="detail-hero" alt="hero" />
-    <h1>{{ article.title }}</h1>
     <div class="subtitle">{{ article.subtitle }}</div>
     <div class="meta">
       <span>By {{ article.authorName }}</span>
@@ -92,5 +92,12 @@ h1 {
   color: #e53e3e;
   margin: 3em 0;
   font-size: 1.3em;
+}
+.detail-title {
+  margin: 0 0 0.5em 0;
+  font-size: 2em;
+  color: #222;
+  font-weight: 700;
+  text-align: left;
 }
 </style>
