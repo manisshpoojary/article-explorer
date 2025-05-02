@@ -86,13 +86,12 @@ onMounted(async () => {
       categoryName.value = article.value.categoryName;
     }
   } else {
-    // fallback: find from homePage.json for demo
-    article.value = articles.find(a => a.articleId === articleId);
+    // fallback: find from article.json for all articles
+    const resp = await fetch('/src/mock-data/article.json').then(r => r.json());
+    const articlesArr = Array.isArray(resp.data) ? resp.data : [resp.data];
+    article.value = articlesArr.find(a => a.articleId === articleId);
     if (article.value) {
-      const catResp = await fetch('/src/mock-data/categories.json').then(r => r.json());
-      const categories = catResp.data.categories || [];
-      const cat = categories.find(c => c.id === article.value.categoryId);
-      categoryName.value = cat ? cat.name : '';
+      categoryName.value = article.value.category?.categoryName || '';
     }
   }
 });
