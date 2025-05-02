@@ -60,12 +60,27 @@ button:focus-visible {
   padding: 2em;
 }
 
+.navbar {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(60,60,60,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7em 2.5em 0.7em 2.5em;
+  border-radius: 0 0 16px 16px;
+  margin-bottom: 2em;
+  box-sizing: border-box;
+}
+
 #app {
-  max-width: 1280px;
+  max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0 2.5em 1.5em 2.5em;
   text-align: center;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 @media (prefers-color-scheme: light) {
@@ -78,6 +93,15 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0.7em 1em;
+  }
+  #app {
+    padding: 0 1em 1em 1em;
   }
 }
 

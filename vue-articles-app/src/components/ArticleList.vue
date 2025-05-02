@@ -70,16 +70,17 @@ ul {
   width: 100%;
 }
 .hero-img {
-  width: 100%;
-  max-width: 140px;
-  height: 100%;
-  max-height: 120px;
+  width: 180px;
+  height: 140px;
+  max-width: 180px;
+  max-height: 140px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
   flex-shrink: 0;
   background: #f6f6f6;
   align-self: stretch;
+  transition: box-shadow 0.2s;
 }
 .article-content {
   flex: 1;

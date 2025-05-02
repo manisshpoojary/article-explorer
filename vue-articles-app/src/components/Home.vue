@@ -27,7 +27,8 @@
     @filter-change="onFilterChange"
   />
   <div class="articles-section">
-    <ArticleList :articles="filteredArticles" />
+    <ArticleList :articles="paginatedArticles" />
+    <Pagination :current-page="currentPage" :total-pages="totalPages" @page-change="handlePageChange" />
   </div>
 </template>
 
@@ -36,6 +37,7 @@ import { ref, computed, onMounted, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import ArticleList from './ArticleList.vue';
 import FilterBar from './FilterBar.vue';
+import Pagination from './Pagination.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -45,6 +47,32 @@ const authors = ref([]);
 const types = ref([]);
 const tags = ref([]);
 const filters = ref({ category: '', type: '', author: '', tag: '' });
+
+const currentPage = ref(1);
+const pageSize = 3;
+
+const filteredArticles = computed(() => {
+  return articles.value.filter(article => {
+    const { category, type, author, tag } = filters.value;
+    return (
+      (!category || article.categoryId === category) &&
+      (!type || article.type === type) &&
+      (!author || article.authorName === author) &&
+      (!tag || (article.tags && article.tags.includes(tag)))
+    );
+  });
+});
+
+const totalPages = computed(() => Math.ceil(filteredArticles.value.length / pageSize));
+const paginatedArticles = computed(() => {
+  const start = (currentPage.value - 1) * pageSize;
+  return filteredArticles.value.slice(start, start + pageSize);
+});
+
+function handlePageChange(page) {
+  currentPage.value = page;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 const loadData = async () => {
   const homePageResp = await fetch('/src/mock-data/homePage.json').then(r => r.json());
@@ -90,16 +118,8 @@ watch(() => route.params, () => {
   loadData();
 });
 
-const filteredArticles = computed(() => {
-  return articles.value.filter(article => {
-    const { category, type, author, tag } = filters.value;
-    return (
-      (!category || article.categoryId === category) &&
-      (!type || article.type === type) &&
-      (!author || article.authorName === author) &&
-      (!tag || (article.tags && article.tags.includes(tag)))
-    );
-  });
+watch(filteredArticles, () => {
+  currentPage.value = 1;
 });
 
 const activeFilters = computed(() => {
@@ -233,6 +253,8 @@ onMounted(loadData);
   align-items: center;
   justify-content: flex-start;
   box-shadow: 0 4px 24px rgba(60,60,60,0.10);
+  /* Fix for black background: force light background */
+  color: #213547;
 }
 .hero-content {
   position: relative;
@@ -245,6 +267,7 @@ onMounted(loadData);
   color: #2563eb;
   font-weight: 800;
   letter-spacing: 0.5px;
+  /* Ensure text is visible on light background */
 }
 .hero-sub {
   color: #374151;
