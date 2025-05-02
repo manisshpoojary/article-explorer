@@ -110,6 +110,7 @@ p {
 .meta-row {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 0.5em;
   font-size: 0.98em;
   color: #2563eb;
