@@ -430,7 +430,7 @@ function goBack() {
   margin-right: auto;
 }
 .related-articles.text-article {
-  max-width: 700px;
+  max-width: 100%;
 }
 .related-articles h2 {
   font-size: 1.18em;
@@ -490,7 +490,7 @@ function goBack() {
   margin-right: auto;
 }
 .comments-section.text-article {
-  max-width: 700px;
+  max-width: 100%;
 }
 .comments-section h2 {
   font-size: 1.18em;
