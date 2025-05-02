@@ -590,12 +590,44 @@ function goBack() {
     padding: 1em 0.5em;
   }
   .related-card {
-    min-width: 100%;
+    min-width: unset;
     max-width: 100%;
+    width: 100%;
     font-size: 0.98em;
+    padding: 0.7em 0.5em;
+    box-sizing: border-box;
   }
   .comments-section, .related-articles {
     padding: 1em 0.5em;
+  }
+  .video-frame-container {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 0.7em;
+    padding: 0;
+  }
+  .video-frame {
+    height: 180px;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  .video-meta {
+    max-width: 100%;
+    padding: 0.7em 0.5em 1em 0.5em;
+    font-size: 0.97em;
+  }
+  .video-title {
+    font-size: 1.08em;
+  }
+  .video-subtitle {
+    font-size: 0.97em;
+  }
+  .video-author-row {
+    gap: 0.5em;
+  }
+  .video-author-img {
+    width: 36px;
+    height: 36px;
   }
 }
 @media (max-width: 700px) {
