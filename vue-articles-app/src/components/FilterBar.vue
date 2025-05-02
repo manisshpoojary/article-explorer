@@ -20,36 +20,27 @@
 </template>
 
 <script setup>
-import { reactive, watch } from 'vue';
+import { reactive, watch, toRefs } from 'vue';
 const props = defineProps({
   categories: Array,
   types: Array,
   authors: Array,
-  tags: Array
+  tags: Array,
+  filters: Object // Accept filters as a prop for controlled state
 });
 const emit = defineEmits(['filter-change']);
 const selected = reactive({ category: '', type: '', author: '', tag: '' });
 
-// Watch for prop changes to reset dropdowns when filters are cleared
+// Sync dropdowns with parent filter state
 watch(
-  () => [props.categories, props.types, props.authors, props.tags],
-  () => {
-    selected.category = '';
-    selected.type = '';
-    selected.author = '';
-    selected.tag = '';
-  }
-);
-
-// Also watch for an explicit reset event from parent (if needed)
-watch(
-  () => [props.categories.length, props.types.length, props.authors.length, props.tags.length],
-  () => {
-    selected.category = '';
-    selected.type = '';
-    selected.author = '';
-    selected.tag = '';
-  }
+  () => props.filters,
+  (newFilters) => {
+    selected.category = newFilters.category || '';
+    selected.type = newFilters.type || '';
+    selected.author = newFilters.author || '';
+    selected.tag = newFilters.tag || '';
+  },
+  { immediate: true, deep: true }
 );
 
 function emitChange() {
