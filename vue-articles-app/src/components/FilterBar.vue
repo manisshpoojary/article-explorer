@@ -80,6 +80,17 @@ select:focus {
   border: 1.5px solid #3b82f6;
   box-shadow: 0 0 0 2px #e0e7ff;
 }
+@media (max-width: 900px) {
+  .filter-bar {
+    flex-direction: column;
+    gap: 0.7em;
+    padding: 0.7em 0.5em;
+  }
+  select {
+    width: 100%;
+    margin-right: 0;
+  }
+}
 @media (max-width: 600px) {
   .filter-bar {
     flex-direction: column;

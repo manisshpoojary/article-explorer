@@ -38,7 +38,7 @@
         <div class="subtitle">{{ article.subtitle }}</div>
         <div class="meta">
           <span v-if="categoryName" class="category-link" @click="goToCategory(article.categoryId)">
-            <svg class="icon-category" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2" fill="#16a34a"/><rect x="14" y="3" width="7" height="7" rx="2" fill="#16a34a"/><rect x="14" y="14" width="7" height="7" rx="2" fill="#16a34a"/><rect x="3" y="14" width="7" height="7" rx="2" fill="#16a34a"/></svg>
+            <svg class="icon-category" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2" fill="#2563eb"/><rect x="14" y="3" width="7" height="7" rx="2" fill="#2563eb"/><rect x="14" y="14" width="7" height="7" rx="2" fill="#2563eb"/><rect x="3" y="14" width="7" height="7" rx="2" fill="#2563eb"/></svg>
             {{ categoryName }}
           </span>
           <span v-if="article.tags && article.tags.length">
@@ -71,7 +71,7 @@
       </ul>
     </div>
     <div :class="['related-articles', { 'text-article': article.type === 'text' }]" v-if="article.relatedArticles && article.relatedArticles.length">
-      <h2><svg class="icon-related" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M17 17v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1" stroke="#16a34a" stroke-width="2" fill="#f0fdfa"/><circle cx="9" cy="7" r="4" stroke="#16a34a" stroke-width="2" fill="#e0e7ff"/><circle cx="17" cy="17" r="4" stroke="#16a34a" stroke-width="2" fill="#e0e7ff"/></svg> Related Articles</h2>
+      <h2><svg class="icon-related" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M17 17v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1" stroke="#2563eb" stroke-width="2" fill="#f0f4ff"/><circle cx="9" cy="7" r="4" stroke="#2563eb" stroke-width="2" fill="#e0e7ff"/><circle cx="17" cy="17" r="4" stroke="#2563eb" stroke-width="2" fill="#e0e7ff"/></svg> Related Articles</h2>
       <div class="related-list">
         <router-link v-for="rel in article.relatedArticles" :key="rel.articleId" :to="{ name: 'ArticleDetail', params: { articleId: rel.articleId } }" class="related-card">
           <div class="related-title">{{ rel.title }}</div>
@@ -440,7 +440,7 @@ function goBack() {
 }
 .related-articles h2 {
   font-size: 1.18em;
-  color: #16a34a;
+  color: #2563eb;
   margin-bottom: 1.1em;
   display: flex;
   align-items: center;
@@ -545,6 +545,58 @@ function goBack() {
   font-size: 1.08em;
   margin-top: 0.2em;
   line-height: 1.6;
+}
+@media (max-width: 900px) {
+  .article-detail {
+    padding: 1.2em 0.5em;
+  }
+  .detail-hero-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7em;
+  }
+  .detail-hero {
+    width: 100%;
+    max-width: 100%;
+    height: 180px;
+    max-height: 180px;
+  }
+  .text-article-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7em;
+  }
+  .text-article-author-img {
+    width: 64px;
+    height: 64px;
+  }
+  .related-list {
+    flex-direction: column;
+    gap: 0.7em;
+  }
+}
+@media (max-width: 600px) {
+  .article-detail {
+    padding: 0.5em 0.1em;
+  }
+  .detail-title {
+    font-size: 1.25em;
+  }
+  .subtitle {
+    font-size: 1em;
+  }
+  .content {
+    font-size: 1em;
+    padding: 1em 0.5em;
+  }
+  .related-card {
+    min-width: 100%;
+    max-width: 100%;
+    font-size: 0.98em;
+  }
+  .comments-section, .related-articles {
+    padding: 1em 0.5em;
+  }
 }
 @media (max-width: 700px) {
   .article-detail {

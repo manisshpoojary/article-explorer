@@ -294,6 +294,31 @@ onMounted(loadData);
   margin-top: 2em;
 }
 @media (max-width: 900px) {
+  .home-hero {
+    min-height: 120px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.2em 1em;
+  }
+  .hero-content {
+    padding: 1.2em 1em;
+  }
+  .hero-bg {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .home-hero {
+    padding: 0.7em 0.2em;
+  }
+  .hero-content h1 {
+    font-size: 1.25em;
+  }
+  .hero-sub {
+    font-size: 1em;
+  }
+}
+@media (max-width: 900px) {
   .hero-bg { display: none; }
   .home-hero { min-height: 120px; }
   .hero-content { padding: 1.2em 1em; }

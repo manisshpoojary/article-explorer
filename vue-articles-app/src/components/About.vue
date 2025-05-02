@@ -285,4 +285,48 @@ function goTo(page) {
   font-size: 0.98em;
   margin-top: 0.1em;
 }
+
+@media (max-width: 900px) {
+  .page {
+    padding: 1.2em 0.5em;
+  }
+  .about-links {
+    gap: 0.7em;
+  }
+  .fancy-author-list {
+    gap: 1em 1.2em;
+  }
+  .fancy-author-item {
+    min-width: 180px;
+    max-width: 100%;
+    padding: 0.7em 0.7em;
+  }
+}
+@media (max-width: 600px) {
+  .page {
+    padding: 0.7em 0.2em;
+  }
+  .about-list, .fancy-list {
+    font-size: 1em;
+    margin-left: 0.2em;
+  }
+  .about-links {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  .fancy-btn {
+    width: 100%;
+    font-size: 0.98em;
+    padding: 0.5em 0.7em;
+  }
+  .fancy-author-list {
+    flex-direction: column;
+    gap: 0.7em;
+  }
+  .fancy-author-item {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 0.7em 0.5em;
+  }
+}
 </style>

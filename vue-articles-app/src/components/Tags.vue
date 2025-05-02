@@ -110,4 +110,30 @@ function goToTag(tag) {
   font-size: 0.98em;
   margin-left: 0.5em;
 }
+
+@media (max-width: 900px) {
+  .page {
+    padding: 1.2em 0.5em;
+  }
+}
+@media (max-width: 600px) {
+  .page {
+    padding: 0.7em 0.2em;
+  }
+  h2 {
+    font-size: 1.15em;
+  }
+  .tag-search {
+    width: 100%;
+    font-size: 1em;
+    padding: 0.5em 0.7em;
+  }
+  .tags-list {
+    gap: 0.4em;
+  }
+  .tag-item {
+    font-size: 0.98em;
+    padding: 0.4em 0.7em;
+  }
+}
 </style>

@@ -37,4 +37,24 @@ const props = defineProps({
   color: #b6b6b6;
   cursor: not-allowed;
 }
+
+@media (max-width: 900px) {
+  .pagination {
+    gap: 0.7em;
+  }
+  .pagination button {
+    padding: 0.4em 0.8em;
+    font-size: 0.98em;
+  }
+}
+@media (max-width: 600px) {
+  .pagination {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  .pagination button {
+    width: 100%;
+    font-size: 0.97em;
+  }
+}
 </style>

@@ -188,6 +188,38 @@ p {
 .article-link:visited {
   color: inherit;
 }
+@media (max-width: 900px) {
+  .article-item {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1em 0.7em;
+    min-height: unset;
+  }
+  .article-row {
+    flex-direction: column;
+    gap: 0.7em;
+  }
+  .hero-img {
+    width: 100%;
+    max-width: 100%;
+    height: 160px;
+    max-height: 160px;
+  }
+}
+@media (max-width: 600px) {
+  .article-item {
+    padding: 0.7em 0.2em;
+  }
+  .article-content h3 {
+    font-size: 1.08em;
+  }
+  .subtitle {
+    font-size: 0.98em;
+  }
+  .summary {
+    font-size: 0.97em;
+  }
+}
 @media (max-width: 600px) {
   .article-row {
     flex-direction: column;

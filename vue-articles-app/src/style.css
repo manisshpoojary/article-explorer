@@ -96,36 +96,67 @@ button:focus-visible {
   }
 }
 
+@media (max-width: 1200px) {
+  #app {
+    padding: 0 0.5em 1em 0.5em;
+  }
+}
+
 @media (max-width: 900px) {
   .navbar {
-    padding: 0.7em 1em;
+    padding: 0.7em 0.5em;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7em;
   }
   #app {
-    padding: 0 1em 1em 1em;
+    padding: 0 0.2em 1em 0.2em;
+  }
+}
+
+@media (max-width: 700px) {
+  #app {
+    padding: 0.2em 0.1em 0.5em 0.1em;
+  }
+  .navbar {
+    font-size: 0.98em;
   }
 }
 
 @media (max-width: 600px) {
   #app {
-    padding: 0.5rem 0.2rem;
+    padding: 0.1em 0.1em 0.2em 0.1em;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.7em 0.2em;
+    gap: 0.5em;
+    font-size: 0.97em;
+  }
+  .navbar-title {
+    font-size: 1em;
+  }
+  .navbar-links {
+    gap: 0.7em;
+    font-size: 0.97em;
   }
 }
 
-/* iPhone 15/Pro/Pro Max specific tweaks (430px width) */
 @media (max-width: 450px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
     padding: 0.7em 0.5em;
     gap: 0.5em;
-    font-size: 0.98em;
+    font-size: 0.95em;
   }
   .navbar-title {
-    font-size: 1.1em;
+    font-size: 0.95em;
   }
   .navbar-links {
     gap: 0.7em;
-    font-size: 0.98em;
+    font-size: 0.95em;
   }
   .article-item {
     padding: 0.7em 0.3em;
