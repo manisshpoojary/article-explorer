@@ -7,11 +7,12 @@
           <img v-if="article.hero" :src="article.hero" alt="hero" class="hero-img" />
           <div class="article-content">
             <h3>{{ article.title }}</h3>
-            <p>By {{ article.author || article.authorId }} | {{ article.type }} | {{ article.category || article.categoryId }}</p>
+            <div v-if="article.subtitle" class="subtitle">{{ article.subtitle }}</div>
+            <p>By {{ article.author || article.authorId || 'Unknown' }} | {{ article.type || 'N/A' }} | {{ article.category || article.categoryId || 'N/A' }}</p>
             <div v-if="article.tags && article.tags.length">
               <span v-for="tag in article.tags" :key="tag" class="tag">#{{ tag }}</span>
             </div>
-            <p>{{ article.summary || article.description || article.content?.slice(0, 100) + '...' }}</p>
+            <p>{{ article.summary || article.description || (article.content ? article.content.slice(0, 100) + '...' : '') }}</p>
           </div>
         </div>
       </li>

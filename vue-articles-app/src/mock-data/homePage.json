@@ -9,6 +9,7 @@
   "articles": [
   {
     "title": "GitHub Copilot - About, Features and Use Cases",
+    "subtitle": "A look at GitHub Copilot's capabilities and impact on coding.",
     "hero": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
     "articleId": "a2b448sq",
     "categoryId": "r4wd2u8",
@@ -18,6 +19,7 @@
   },
   {
     "title": "Has Codeium Cracked the Code for AI Assistants?",
+    "subtitle": "Exploring Codeium's approach to AI-powered development.",
     "hero": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80",
     "articleId": "b2n2ss92",
     "categoryId": "ewd32s3",
@@ -27,6 +29,7 @@
   },
   {
       "title": "OpenAI's GPT-4: The Next Leap in Language Models",
+      "subtitle": "What makes GPT-4 a game changer in AI?",
       "hero": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
       "articleId": "c3g4h5j6",
       "categoryId": "ai2025",
@@ -36,6 +39,7 @@
     },
     {
       "title": "The Rise of Edge Computing in 2025",
+      "subtitle": "How edge computing is shaping the future of tech.",
       "hero": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
       "articleId": "d4e5f6g7",
       "categoryId": "edge2025",
@@ -45,6 +49,7 @@
     },
     {
       "title": "Quantum Computing: Hype vs Reality",
+      "subtitle": "Separating fact from fiction in quantum computing.",
       "hero": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
       "articleId": "e5f6g7h8",
       "categoryId": "quantum2025",
