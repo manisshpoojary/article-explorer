@@ -84,7 +84,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
@@ -94,14 +94,12 @@ const categoryName = ref('');
 const showAuthor = ref(false);
 const showDesc = ref(false);
 
-onMounted(async () => {
-  const articleId = route.params.articleId;
+async function loadArticle(articleId) {
   if (articleId) {
     const resp = await fetch('/src/mock-data/article.json').then(r => r.json());
     const articlesArr = Array.isArray(resp.data) ? resp.data : [resp.data];
     let found = articlesArr.find(a => a.articleId === articleId);
     if (found) {
-      // Normalize fields for template compatibility
       article.value = {
         ...found,
         type: found.articleType,
@@ -117,6 +115,14 @@ onMounted(async () => {
       article.value = null;
     }
   }
+}
+
+onMounted(() => {
+  loadArticle(route.params.articleId);
+});
+
+watch(() => route.params.articleId, (newId) => {
+  loadArticle(newId);
 });
 
 function goToTag(tag) {
