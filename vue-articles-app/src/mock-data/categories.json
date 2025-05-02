@@ -1,13 +1,18 @@
-
 {
- "status": 1,
+  "status": 1,
   "message": "success",
   "data": {
-	"categories": [
-	 {
-		"categoryId": "a9d7hds2",
-		"categoryName": "Technology"
-	 }
-	]
+    "categories": [
+      { "id": "ai", "name": "Artificial Intelligence" },
+      { "id": "webdev", "name": "Web Development" },
+      { "id": "cloud", "name": "Cloud Computing" },
+      { "id": "quantum", "name": "Quantum Computing" },
+      { "id": "datasci", "name": "Data Science" },
+      { "id": "edge", "name": "Edge Computing" },
+      { "id": "lang", "name": "Programming Languages" },
+      { "id": "cyber", "name": "Cybersecurity" },
+      { "id": "mobile", "name": "Mobile Development" },
+      { "id": "devops", "name": "DevOps" }
+    ]
   }
 }

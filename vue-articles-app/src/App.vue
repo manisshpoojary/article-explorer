@@ -64,22 +64,13 @@ onMounted(loadData);
       <span class="navbar-title">Article Explorer</span>
     </div>
     <div class="navbar-links">
-      <a href="#" class="active">Home</a>
-      <a href="#">Categories</a>
-      <a href="#">Tags</a>
-      <a href="#">About</a>
+      <router-link to="/" exact-active-class="active">Home</router-link>
+      <router-link to="/categories" exact-active-class="active">Categories</router-link>
+      <router-link to="/tags" exact-active-class="active">Tags</router-link>
+      <router-link to="/about" exact-active-class="active">About</router-link>
     </div>
   </nav>
-  <div>
-    <FilterBar
-      :categories="categories"
-      :authors="authors"
-      :types="types"
-      :tags="tags"
-      @filter-change="onFilterChange"
-    />
-    <ArticleList :articles="filteredArticles" />
-  </div>
+  <router-view />
 </template>
 
 <style scoped>
