@@ -2,7 +2,6 @@
 import { ref, computed, onMounted } from 'vue';
 import ArticleList from './components/ArticleList.vue';
 import FilterBar from './components/FilterBar.vue';
-import VuePullRefresh from 'vue-pull-refresh';
 
 const articles = ref([]);
 const categories = ref([]);
@@ -10,18 +9,26 @@ const authors = ref([]);
 const types = ref([]);
 const tags = ref([]);
 const filters = ref({ category: '', type: '', author: '', tag: '' });
+const isRefreshing = ref(false);
 
 const loadData = async () => {
-  const [articleData, categoryData] = await Promise.all([
-    fetch('/article.json').then(r => r.json()),
-    fetch('/categories.json').then(r => r.json()),
-  ]);
-  articles.value = articleData;
-  categories.value = categoryData.categories || [];
-  // Extract authors, types, tags from articles
-  authors.value = [...new Set(articleData.map(a => a.author))];
-  types.value = [...new Set(articleData.map(a => a.type))];
-  tags.value = [...new Set(articleData.flatMap(a => a.tags || []))];
+  // Load mock home page data
+  const homePageResp = await fetch('/src/mock-data/homePage.json').then(r => r.json());
+  const articlesData = homePageResp.data.articles;
+  articles.value = articlesData.map(article => ({
+    id: article.articleId,
+    title: article.title,
+    hero: article.hero,
+    categoryId: article.categoryId,
+    authorId: article.authorId,
+    type: article.articleType,
+    tags: article.tags
+  }));
+  // Extract unique categories, authors, types, and tags from articles
+  categories.value = [...new Set(articlesData.map(a => a.categoryId))];
+  authors.value = [...new Set(articlesData.map(a => a.authorId))];
+  types.value = [...new Set(articlesData.map(a => a.articleType))];
+  tags.value = [...new Set(articlesData.flatMap(a => a.tags || []))];
 };
 
 const filteredArticles = computed(() => {
@@ -40,9 +47,10 @@ const onFilterChange = (newFilters) => {
   filters.value = { ...filters.value, ...newFilters };
 };
 
-const refreshArticles = async (done) => {
+const refreshArticles = async () => {
+  isRefreshing.value = true;
   await loadData();
-  done();
+  setTimeout(() => { isRefreshing.value = false; }, 500); // Simulate refresh time
 };
 
 onMounted(loadData);
@@ -57,9 +65,11 @@ onMounted(loadData);
       :tags="tags"
       @filter-change="onFilterChange"
     />
-    <vue-pull-refresh @refresh="refreshArticles">
-      <ArticleList :articles="filteredArticles" />
-    </vue-pull-refresh>
+    <button @click="refreshArticles" :disabled="isRefreshing">
+      <span v-if="isRefreshing">Refreshing...</span>
+      <span v-else>Refresh</span>
+    </button>
+    <ArticleList :articles="filteredArticles" />
   </div>
 </template>
 
