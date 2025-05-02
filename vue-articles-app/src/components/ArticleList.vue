@@ -101,6 +101,15 @@ p {
   color: #444;
   font-size: 1em;
 }
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.98em;
+  color: #2563eb;
+  margin-bottom: 0.7em; /* Increased margin for separation */
+  flex-wrap: wrap;
+}
 .tag {
   background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%);
   border-radius: 4px;

@@ -1,4 +1,11 @@
 <template>
+  <div class="home-hero">
+    <div class="hero-content">
+      <h1>Welcome to Article Explorer</h1>
+      <p class="hero-sub">Discover, filter, and explore the latest tech articles by category, tag, or author.</p>
+    </div>
+    <img class="hero-bg" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" alt="Hero" />
+  </div>
   <div class="active-filters" v-if="activeFilters.length">
     <span v-for="filter in activeFilters" :key="filter.label" class="active-filter">
       {{ filter.label }}: <strong>{{ filter.value }}</strong>
@@ -19,7 +26,9 @@
     :tags="tags"
     @filter-change="onFilterChange"
   />
-  <ArticleList :articles="filteredArticles" />
+  <div class="articles-section">
+    <ArticleList :articles="filteredArticles" />
+  </div>
 </template>
 
 <script setup>
@@ -213,7 +222,56 @@ onMounted(loadData);
 </script>
 
 <style scoped>
-/* Add your styles here */
+.home-hero {
+  position: relative;
+  background: linear-gradient(120deg, #f0f4ff 0%, #f8fafc 100%);
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 2.5em;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 4px 24px rgba(60,60,60,0.10);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2.5em 2em;
+}
+.hero-content h1 {
+  margin: 0 0 0.3em 0;
+  font-size: 2.3em;
+  color: #2563eb;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.hero-sub {
+  color: #374151;
+  font-size: 1.18em;
+  margin: 0;
+  font-weight: 500;
+}
+.hero-bg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 45%;
+  object-fit: cover;
+  opacity: 0.18;
+  z-index: 1;
+  border-radius: 0 18px 18px 0;
+  pointer-events: none;
+}
+.articles-section {
+  margin-top: 2em;
+}
+@media (max-width: 900px) {
+  .hero-bg { display: none; }
+  .home-hero { min-height: 120px; }
+  .hero-content { padding: 1.2em 1em; }
+}
 .active-filters {
   display: flex;
   flex-wrap: wrap;
