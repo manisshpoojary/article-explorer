@@ -24,6 +24,7 @@
     :authors="authors"
     :types="types"
     :tags="tags"
+    :filters="filters"
     @filter-change="onFilterChange"
   />
   <div class="articles-section">
@@ -94,11 +95,13 @@ const loadData = async () => {
     categoryId: article.categoryId,
     authorId: article.authorId,
     authorName: article.authorName,
-    type: article.articleType,
-    tags: article.tags || []
+    type: article.articleType, // 'text' or 'video'
+    tags: article.tags || [],
+    mediaUrl: article.mediaUrl || ''
   }));
   authors.value = [...new Set(articlesData.map(a => a.authorName))];
-  types.value = [...new Set(articlesData.map(a => a.articleType === 'text' ? 'Text' : 'Video'))];
+  // Only allow 'text' and 'video' as type filters, and display as 'Text'/'Video'
+  types.value = ['text', 'video'];
   tags.value = [...new Set(articlesData.flatMap(a => a.tags || []))];
 
   // Set filter from route if present

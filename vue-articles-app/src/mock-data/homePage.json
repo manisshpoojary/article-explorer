@@ -94,6 +94,18 @@
       "authorName": "Neha Kulkarni",
       "articleType": "text",
       "tags": ["DevOps", "Automation", "CI/CD"]
+    },
+    {
+      "title": "Kubernetes Crash Course (Video)",
+      "subtitle": "A beginner-friendly video on Kubernetes fundamentals.",
+      "hero": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
+      "articleId": "video-k8s-2025",
+      "categoryId": "devops",
+      "authorId": "author8",
+      "authorName": "Sonia Rao",
+      "articleType": "video",
+      "mediaUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+      "tags": ["DevOps", "Kubernetes", "Video"]
     }
   ]
 }

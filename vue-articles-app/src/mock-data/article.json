@@ -193,6 +193,30 @@
       "articleType": "text",
       "relatedArticles": [],
       "comments": []
+    },
+    {
+      "articleId": "video-k8s-2025",
+      "published": "2025-05-03 15:00",
+      "author": {
+        "authorId": "author8",
+        "authorImage": "https://randomuser.me/api/portraits/women/66.jpg",
+        "authorName": "Sonia Rao",
+        "authorBio": "Sonia Rao is a cloud-native specialist and DevOps trainer from Bengaluru, India. She creates video content on Kubernetes and cloud engineering."
+      },
+      "category": {
+        "categoryId": "devops",
+        "categoryName": "DevOps"
+      },
+      "tags": ["DevOps", "Kubernetes", "Video"],
+      "title": "Kubernetes Crash Course (Video)",
+      "subtitle": "A beginner-friendly video on Kubernetes fundamentals.",
+      "hero": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
+      "mediaUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+      "description": "<p>This video covers the basics of Kubernetes, including pods, deployments, and services. Perfect for beginners looking to understand container orchestration and DevOps workflows.</p>",
+      "summary": "A video introduction to Kubernetes for DevOps beginners.",
+      "articleType": "video",
+      "relatedArticles": [],
+      "comments": []
     }
   ]
 }
