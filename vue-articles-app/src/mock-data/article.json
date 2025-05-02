@@ -85,7 +85,7 @@
       "hero": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
       "description": "<p>OpenAI's GPT-4 is the latest advancement in natural language processing, offering unparalleled capabilities in text generation, understanding, and reasoning. As a language model, GPT-4 can generate human-like text, answer questions, summarize documents, and even write code. Its applications span across industries, from customer support to content creation and software development.\n\nGPT-4's architecture is based on deep learning techniques that allow it to understand context, infer meaning, and generate coherent responses. It has been trained on a diverse dataset, enabling it to handle a wide range of topics and tasks. Developers can integrate GPT-4 into their applications using APIs, unlocking new possibilities for automation and user interaction.\n\nOne of the most impressive features of GPT-4 is its ability to perform few-shot learning, where it can understand and complete tasks with minimal examples. This makes it highly adaptable and useful for custom applications. However, like all AI models, GPT-4 has limitations and may occasionally produce incorrect or biased outputs. Responsible usage and human oversight are essential to ensure the quality and safety of its responses.\n\nThe impact of GPT-4 on the tech industry has been profound, driving innovation in areas like chatbots, virtual assistants, and automated content generation. Its ability to understand and generate code has made it a valuable tool for developers, enabling faster prototyping and problem-solving. As AI technology continues to advance, GPT-4 sets a new benchmark for what is possible with language models.</p>",
       "summary": "A look at the advancements and use cases of OpenAI's GPT-4.",
-      "articleType": "video"
+      "articleType": "text"
     },
     {
       "articleId": "d4e5f6g7",
@@ -127,7 +127,7 @@
       "hero": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
       "description": "<p>Quantum computing is a rapidly evolving field that promises to revolutionize the way we solve complex problems. Unlike classical computers, which use bits to represent data, quantum computers use qubits that can exist in multiple states simultaneously. This allows quantum computers to perform certain calculations much faster than their classical counterparts.\n\nThe potential applications of quantum computing are vast, ranging from cryptography and drug discovery to optimization and machine learning. However, the technology is still in its early stages, and many challenges remain. Building stable and scalable quantum computers requires advances in hardware, error correction, and algorithm design.\n\nDespite the hype, it's important to recognize the limitations of current quantum computers. Most existing systems are noisy and can only solve specific types of problems. Researchers are actively working to overcome these challenges and unlock the full potential of quantum computing.\n\nAs the field matures, we can expect to see more practical applications and commercial solutions. Quantum computing has the potential to transform industries and drive innovation, but it will take time to realize its full impact. In the meantime, continued research and investment are essential to advance the state of the art.</p>",
       "summary": "A critical look at the current state and future of quantum computing.",
-      "articleType": "video"
+      "articleType": "text"
     },
     {
       "articleId": "amit1",
@@ -148,7 +148,7 @@
       "hero": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=400&q=80",
       "description": "<p>AI is playing a transformative role in the Indian healthcare sector, improving diagnostics, patient care, and operational efficiency. From AI-powered imaging systems to predictive analytics for disease outbreaks, the technology is helping healthcare providers deliver better outcomes.\n\nOne of the key benefits of AI in healthcare is its ability to analyze large volumes of data quickly and accurately. This enables early detection of diseases, personalized treatment plans, and more effective resource allocation. AI-driven tools are also helping doctors and nurses automate routine tasks, freeing up time for patient care.\n\nDespite these advancements, there are challenges to overcome, including data privacy, regulatory compliance, and the need for skilled professionals. Collaboration between the public and private sectors is essential to address these issues and ensure the responsible use of AI in healthcare.\n\nThe future of AI in Indian healthcare looks promising, with ongoing research and investment driving innovation. As the technology matures, we can expect to see even greater improvements in patient outcomes and healthcare delivery.</p>",
       "summary": "The impact of AI on healthcare in India, its opportunities, and challenges.",
-      "articleType": "video"
+      "articleType": "text"
     },
     {
       "articleId": "amit2",

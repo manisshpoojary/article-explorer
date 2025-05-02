@@ -37,7 +37,7 @@
       "categoryId": "ai",
       "authorId": "author3",
       "authorName": "Rahul Verma",
-      "articleType": "video",
+      "articleType": "text",
       "tags": ["AI", "Language Model"]
     },
     {
@@ -59,7 +59,7 @@
       "categoryId": "quantum",
       "authorId": "author5",
       "authorName": "Vikram Patel",
-      "articleType": "video",
+      "articleType": "text",
       "tags": ["Quantum", "Science"]
     },
     {
@@ -70,7 +70,7 @@
       "categoryId": "ai",
       "authorId": "author1",
       "authorName": "Amit Sharma",
-      "articleType": "video",
+      "articleType": "text",
       "tags": ["AI", "Healthcare", "India"]
     },
     {
