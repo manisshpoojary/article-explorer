@@ -26,30 +26,27 @@
       </div>
       <template v-else>
         <img v-if="article.hero" :src="article.hero" class="detail-hero" alt="hero" />
-        <div class="author-avatar-block">
-          <img v-if="article.authorImage" :src="article.authorImage" class="author-img" alt="author" @mouseenter="showAuthor = true" @mouseleave="showAuthor = false" />
-          <transition name="fade">
-            <div v-if="showAuthor" class="author-float">{{ article.authorName }}</div>
-          </transition>
-        </div>
       </template>
     </div>
-    <div v-if="article.type !== 'video'">
-      <h1 class="detail-title">{{ article.title }}</h1>
-      <div class="subtitle">{{ article.subtitle }}</div>
-      <div class="meta">
-        <span class="author-link" @click="goToAuthor(article.authorName)">
-          <svg class="icon-user" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#2563eb"/><path d="M4 20c0-2.21 3.58-4 8-4s8 1.79 8 4" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/></svg>
-          {{ article.authorName }}
-        </span>
-        <span v-if="categoryName" class="category-link" @click="goToCategory(article.categoryId)">
-          <svg class="icon-category" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2" fill="#16a34a"/><rect x="14" y="3" width="7" height="7" rx="2" fill="#16a34a"/><rect x="14" y="14" width="7" height="7" rx="2" fill="#16a34a"/><rect x="3" y="14" width="7" height="7" rx="2" fill="#16a34a"/></svg>
-          {{ categoryName }}
-        </span>
-        <span v-if="article.tags && article.tags.length">
-          <svg class="icon-tag" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M20.59 13.41l-8.3 8.3a2 2 0 0 1-2.83 0l-6.17-6.17a2 2 0 0 1 0-2.83l8.3-8.3a2 2 0 0 1 2.83 0l6.17 6.17a2 2 0 0 1 0 2.83z" stroke="#3b82f6" stroke-width="2"/><circle cx="7.5" cy="7.5" r="1.5" fill="#3b82f6"/></svg>
-          <span v-for="tag in article.tags" :key="tag" class="tag" @click.stop="goToTag(tag)">#{{ tag }}</span>
-        </span>
+    <div v-if="article.type !== 'video'" class="text-article-header">
+      <img v-if="article.authorImage" :src="article.authorImage" class="text-article-author-img" alt="author" />
+      <div class="text-article-title-block">
+        <h1 class="detail-title">{{ article.title }}</h1>
+        <div class="subtitle">{{ article.subtitle }}</div>
+        <div class="meta">
+          <span class="author-link" @click="goToAuthor(article.authorName)">
+            <svg class="icon-user" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#2563eb"/><path d="M4 20c0-2.21 3.58-4 8-4s8 1.79 8 4" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/></svg>
+            {{ article.authorName }}
+          </span>
+          <span v-if="categoryName" class="category-link" @click="goToCategory(article.categoryId)">
+            <svg class="icon-category" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2" fill="#16a34a"/><rect x="14" y="3" width="7" height="7" rx="2" fill="#16a34a"/><rect x="14" y="14" width="7" height="7" rx="2" fill="#16a34a"/><rect x="3" y="14" width="7" height="7" rx="2" fill="#16a34a"/></svg>
+            {{ categoryName }}
+          </span>
+          <span v-if="article.tags && article.tags.length">
+            <svg class="icon-tag" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M20.59 13.41l-8.3 8.3a2 2 0 0 1-2.83 0l-6.17-6.17a2 2 0 0 1 0-2.83l8.3-8.3a2 2 0 0 1 2.83 0l6.17 6.17a2 2 0 0 1 0 2.83z" stroke="#3b82f6" stroke-width="2"/><circle cx="7.5" cy="7.5" r="1.5" fill="#3b82f6"/></svg>
+            <span v-for="tag in article.tags" :key="tag" class="tag" @click.stop="goToTag(tag)">#{{ tag }}</span>
+          </span>
+        </div>
       </div>
     </div>
     <transition name="float-desc-fade">
@@ -559,5 +556,36 @@ function goBack() {
     width: 48px;
     height: 48px;
   }
+  .text-article-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7em;
+  }
+  .text-article-author-img {
+    width: 48px;
+    height: 48px;
+  }
+}
+.text-article-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.3em;
+  margin-bottom: 1.2em;
+}
+.text-article-author-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2563eb;
+  box-shadow: 0 2px 8px rgba(60,60,60,0.10);
+  background: #f0f4ff;
+  flex-shrink: 0;
+}
+.text-article-title-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
 }
 </style>
