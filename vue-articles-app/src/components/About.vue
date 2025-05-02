@@ -10,17 +10,25 @@
       <li><span class="list-icon">📱</span> Responsive for all devices <span class="device-badge">iPhone 15</span></li>
       <li><span class="list-icon">🔎</span> Filter articles by <span class="highlight">category</span>, <span class="highlight">type</span>, <span class="highlight">author</span>, and <span class="highlight">tag</span></li>
     </ul>
-    <div class="about-links">
-      <button @click="goTo('Home')">Go to Home</button>
-      <button @click="goTo('Categories')">Browse Categories</button>
-      <button @click="goTo('Tags')">Browse Tags</button>
+    <div class="about-links fancy-links">
+      <button class="fancy-btn" @click="goTo('Home')">
+        <span class="btn-icon">🏠</span> Go to Home
+      </button>
+      <button class="fancy-btn" @click="goTo('Categories')">
+        <span class="btn-icon">📂</span> Browse Categories
+      </button>
+      <button class="fancy-btn" @click="goTo('Tags')">
+        <span class="btn-icon">🏷️</span> Browse Tags
+      </button>
     </div>
-    <div class="about-team">
+    <div class="about-team fancy-team">
       <h3>Meet the Authors</h3>
-      <ul>
-        <li v-for="author in authors" :key="author.authorId" class="author-item">
-          <img :src="author.authorImage" :alt="author.authorName" class="author-img" />
-          <div>
+      <ul class="fancy-author-list">
+        <li v-for="author in authors" :key="author.authorId" class="author-item fancy-author-item">
+          <div class="author-avatar">
+            <img :src="author.authorImage" :alt="author.authorName" class="author-img" />
+          </div>
+          <div class="author-info">
             <span class="author-name">{{ author.authorName }}</span>
             <span class="author-bio">{{ author.authorBio }}</span>
           </div>
@@ -173,5 +181,108 @@ function goTo(page) {
   border-radius: 4px;
   padding: 0.1em 0.4em;
   margin: 0 0.1em;
+}
+.fancy-links {
+  margin: 2em 0 2em 0;
+  display: flex;
+  gap: 1.2em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.fancy-btn {
+  background: linear-gradient(90deg, #2563eb 60%, #60a5fa 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.7em 2em;
+  font-size: 1.08em;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(60,60,60,0.10);
+  transition: background 0.18s, transform 0.18s;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  letter-spacing: 0.5px;
+}
+.fancy-btn:hover {
+  background: linear-gradient(90deg, #1d4ed8 60%, #3b82f6 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+.btn-icon {
+  font-size: 1.25em;
+  margin-right: 0.5em;
+  display: inline-block;
+}
+.fancy-team {
+  margin-top: 2.5em;
+  background: linear-gradient(90deg, #e0e7ff 0%, #f0fdfa 100%);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(60,60,60,0.07);
+  padding: 2em 1.5em;
+}
+.fancy-team h3 {
+  margin-bottom: 1.2em;
+  color: #2563eb;
+  font-size: 1.25em;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+.fancy-author-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em 2.5em;
+  justify-content: center;
+}
+.fancy-author-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(60,60,60,0.06);
+  padding: 1.1em 1.5em;
+  min-width: 320px;
+  max-width: 400px;
+  margin-bottom: 1.2em;
+  transition: box-shadow 0.18s, transform 0.18s;
+}
+.fancy-author-item:hover {
+  box-shadow: 0 4px 16px rgba(60,60,60,0.13);
+  transform: translateY(-2px) scale(1.03);
+}
+.author-avatar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.author-img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e0e7ff;
+  background: #f0f4ff;
+  box-shadow: 0 1px 4px rgba(60,60,60,0.08);
+}
+.author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+.author-name {
+  font-weight: 700;
+  color: #222;
+  font-size: 1.13em;
+  margin-bottom: 0.1em;
+}
+.author-bio {
+  color: #64748b;
+  font-size: 0.98em;
+  margin-top: 0.1em;
 }
 </style>
