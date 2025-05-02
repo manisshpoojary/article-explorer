@@ -98,7 +98,7 @@ const loadData = async () => {
     tags: article.tags || []
   }));
   authors.value = [...new Set(articlesData.map(a => a.authorName))];
-  types.value = [...new Set(articlesData.map(a => a.articleType))];
+  types.value = [...new Set(articlesData.map(a => a.articleType === 'text' ? 'Text' : 'Video'))];
   tags.value = [...new Set(articlesData.flatMap(a => a.tags || []))];
 
   // Set filter from route if present

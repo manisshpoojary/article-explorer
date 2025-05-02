@@ -15,7 +15,7 @@
     "categoryId": "ai",
     "authorId": "author1",
     "authorName": "Amit Sharma",
-    "articleType": 1,
+    "articleType": "text",
     "tags": ["Science", "Technology"]
   },
   {
@@ -26,7 +26,7 @@
     "categoryId": "ai",
     "authorId": "author2",
     "authorName": "Priya Singh",
-    "articleType": 1,
+    "articleType": "text",
     "tags": ["Science", "Technology"]
   },
   {
@@ -37,7 +37,7 @@
       "categoryId": "ai",
       "authorId": "author3",
       "authorName": "Rahul Verma",
-      "articleType": 2,
+      "articleType": "video",
       "tags": ["AI", "Language Model"]
     },
     {
@@ -48,7 +48,7 @@
       "categoryId": "edge",
       "authorId": "author4",
       "authorName": "Sneha Iyer",
-      "articleType": 1,
+      "articleType": "text",
       "tags": ["Edge", "Technology"]
     },
     {
@@ -59,7 +59,7 @@
       "categoryId": "quantum",
       "authorId": "author5",
       "authorName": "Vikram Patel",
-      "articleType": 3,
+      "articleType": "video",
       "tags": ["Quantum", "Science"]
     },
     {
@@ -70,7 +70,7 @@
       "categoryId": "ai",
       "authorId": "author1",
       "authorName": "Amit Sharma",
-      "articleType": 2,
+      "articleType": "video",
       "tags": ["AI", "Healthcare", "India"]
     },
     {
@@ -81,7 +81,7 @@
       "categoryId": "datasci",
       "authorId": "author1",
       "authorName": "Amit Sharma",
-      "articleType": 1,
+      "articleType": "text",
       "tags": ["Machine Learning", "Agriculture", "India"]
     },
     {
@@ -92,7 +92,7 @@
       "categoryId": "devops",
       "authorId": "author6",
       "authorName": "Neha Kulkarni",
-      "articleType": 1,
+      "articleType": "text",
       "tags": ["DevOps", "Automation", "CI/CD"]
     }
   ]
