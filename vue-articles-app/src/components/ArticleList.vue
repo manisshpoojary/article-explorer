@@ -113,7 +113,6 @@ p {
   justify-content: flex-start;
   gap: 0.5em;
   font-size: 0.98em;
-  color: #2563eb;
   margin-bottom: 0.5em;
   flex-wrap: wrap;
 }
