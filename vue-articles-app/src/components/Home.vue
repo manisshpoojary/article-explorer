@@ -3,7 +3,11 @@
     <span v-for="filter in activeFilters" :key="filter.label" class="active-filter">
       {{ filter.label }}: <strong>{{ filter.value }}</strong>
       <span v-if="filter.label === 'Tag'" class="clear-icon" @click="clearTagFilter">✕</span>
+      <span v-else-if="filter.label === 'Category'" class="clear-icon" @click="clearCategoryFilter">✕</span>
+      <span v-else-if="filter.label === 'Author'" class="clear-icon" @click="clearAuthorFilter">✕</span>
+      <span v-else-if="filter.label === 'Type'" class="clear-icon" @click="clearTypeFilter">✕</span>
     </span>
+    <span class="clear-all" @click="clearAllFilters">Clear All</span>
   </div>
   <FilterBar
     :categories="categories"
@@ -116,6 +120,26 @@ function clearTagFilter() {
   router.push({ name: 'Home' });
 }
 
+function clearCategoryFilter() {
+  filters.value = { ...filters.value, category: '' };
+  router.push({ name: 'Home' });
+}
+
+function clearAuthorFilter() {
+  filters.value = { ...filters.value, author: '' };
+  router.push({ name: 'Home' });
+}
+
+function clearTypeFilter() {
+  filters.value = { ...filters.value, type: '' };
+  router.push({ name: 'Home' });
+}
+
+function clearAllFilters() {
+  filters.value = { category: '', type: '', author: '', tag: '' };
+  router.push({ name: 'Home' });
+}
+
 onMounted(loadData);
 </script>
 
@@ -146,5 +170,20 @@ onMounted(loadData);
 }
 .clear-icon:hover {
   color: #1d4ed8;
+}
+.clear-all {
+  margin-left: 1.5em;
+  color: #fff;
+  background: #2563eb;
+  border-radius: 6px;
+  padding: 0.2em 1em;
+  font-size: 0.98em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 1px 3px rgba(60,60,60,0.08);
+}
+.clear-all:hover {
+  background: #1d4ed8;
 }
 </style>
