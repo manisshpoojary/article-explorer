@@ -4,10 +4,10 @@
     <img v-if="article.hero" :src="article.hero" class="detail-hero" alt="hero" />
     <div class="subtitle">{{ article.subtitle }}</div>
     <div class="meta">
-      <span>By {{ article.authorName }}</span>
-      <span v-if="categoryName"> | {{ categoryName }}</span>
+      <span class="author-link" @click="goToAuthor(article.authorName)">{{ article.authorName }}</span>
+      <span v-if="categoryName" class="category-link" @click="goToCategory(article.categoryId)">{{ categoryName }}</span>
       <span v-if="article.tags && article.tags.length">
-        | <span v-for="tag in article.tags" :key="tag" class="tag">#{{ tag }}</span>
+        | <span v-for="tag in article.tags" :key="tag" class="tag" @click.stop="goToTag(tag)">#{{ tag }}</span>
       </span>
     </div>
     <div class="content">
@@ -19,9 +19,10 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
+const router = useRouter();
 const article = ref(null);
 const categoryName = ref('');
 
@@ -36,6 +37,18 @@ onMounted(async () => {
     categoryName.value = cat ? cat.name : '';
   }
 });
+
+function goToTag(tag) {
+  router.push({ name: 'TagArticles', params: { tag } });
+}
+
+function goToCategory(categoryId) {
+  router.push({ name: 'CategoryArticles', params: { categoryId } });
+}
+
+function goToAuthor(author) {
+  router.push({ name: 'AuthorArticles', params: { author } });
+}
 </script>
 
 <style scoped>
@@ -99,5 +112,19 @@ h1 {
   color: #222;
   font-weight: 700;
   text-align: left;
+}
+.category-link {
+  color: #16a34a;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 0.5em;
+  text-decoration: underline;
+}
+.author-link {
+  color: #f59e42;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 0.5em;
+  text-decoration: underline;
 }
 </style>
