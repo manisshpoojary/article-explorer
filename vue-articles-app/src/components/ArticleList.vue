@@ -2,7 +2,7 @@
   <div>
     <div v-if="articles.length === 0">No articles found.</div>
     <ul v-else>
-      <li v-for="article in articles" :key="article.id" class="article-item">
+      <li v-for="article in articles" :key="article.id" class="article-item" @click="goToDetail(article.articleId)" style="cursor:pointer;">
         <div class="article-row">
           <img v-if="article.hero" :src="article.hero" alt="hero" class="hero-img" />
           <div class="article-content">
@@ -21,12 +21,20 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
+
 const props = defineProps({
   articles: {
     type: Array,
     required: true
   }
 });
+
+const router = useRouter();
+
+function goToDetail(articleId) {
+  router.push({ name: 'ArticleDetail', params: { articleId } });
+}
 </script>
 
 <style scoped>

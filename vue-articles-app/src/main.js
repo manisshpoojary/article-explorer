@@ -6,6 +6,7 @@ import Home from './components/Home.vue';
 import Categories from './components/Categories.vue';
 import Tags from './components/Tags.vue';
 import About from './components/About.vue';
+import ArticleDetail from './components/ArticleDetail.vue';
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -14,6 +15,7 @@ const routes = [
   { path: '/tags', name: 'Tags', component: Tags },
   { path: '/tags/:tag', name: 'TagArticles', component: Home, props: true },
   { path: '/about', name: 'About', component: About },
+  { path: '/article/:articleId', name: 'ArticleDetail', component: ArticleDetail, props: true },
   { path: '/:catchAll(.*)', redirect: '/' }
 ];
 
