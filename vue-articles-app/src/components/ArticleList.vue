@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="articles.length === 0">No articles found.</div>
-    <ul v-else>
+    <ul v-else class="article-list-grid">
       <li v-for="article in articles" :key="article.id" class="article-item">
         <router-link :to="{ name: 'ArticleDetail', params: { articleId: article.id } }" class="article-link">
           <div class="article-row">
@@ -9,11 +9,14 @@
             <div class="article-content">
               <h3>{{ article.title }}</h3>
               <div v-if="article.subtitle" class="subtitle">{{ article.subtitle }}</div>
-              <p>By {{ article.authorName || article.author || article.authorId || 'Unknown' }} | {{ article.type || 'N/A' }} | {{ article.category || article.categoryId || 'N/A' }}</p>
-              <div v-if="article.tags && article.tags.length">
+              <div class="meta-row">
+                <span class="author">By {{ article.authorName || article.author || article.authorId || 'Unknown' }}</span>
+              </div>
+              <div class="tags-row" v-if="article.tags && article.tags.length">
+                <svg class="icon-tag" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M20.59 13.41l-8.3 8.3a2 2 0 0 1-2.83 0l-6.17-6.17a2 2 0 0 1 0-2.83l8.3-8.3a2 2 0 0 1 2.83 0l6.17 6.17a2 2 0 0 1 0 2.83z" stroke="#3b82f6" stroke-width="2"/><circle cx="7.5" cy="7.5" r="1.5" fill="#3b82f6"/></svg>
                 <span v-for="tag in article.tags" :key="tag" class="tag">#{{ tag }}</span>
               </div>
-              <p>{{ article.summary || article.description || (article.content ? article.content.slice(0, 100) + '...' : '') }}</p>
+              <p class="summary">{{ article.summary || article.description || (article.content ? article.content.slice(0, 100) + '...' : '') }}</p>
             </div>
           </div>
         </router-link>
@@ -83,18 +86,21 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: left;
 }
 h3 {
   margin: 0 0 0.2em 0;
   font-size: 1.25em;
   color: #222;
   font-weight: 700;
+  text-align: left;
 }
 .subtitle {
   color: #6c757d;
   font-size: 1em;
   margin-bottom: 0.5em;
   font-weight: 500;
+  text-align: left;
 }
 p {
   margin: 0.2em 0 0.2em 0;
@@ -107,7 +113,7 @@ p {
   gap: 0.5em;
   font-size: 0.98em;
   color: #2563eb;
-  margin-bottom: 0.7em; /* Increased margin for separation */
+  margin-bottom: 0.5em;
   flex-wrap: wrap;
 }
 .tag {
@@ -119,6 +125,59 @@ p {
   color: #3b82f6;
   font-weight: 500;
   display: inline-block;
+}
+.tags-types-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  margin-bottom: 0.3em;
+  margin-top: 0.1em;
+  flex-wrap: wrap;
+}
+.tags-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.icon-tag {
+  margin-right: 0.3em;
+  vertical-align: middle;
+}
+.types-category-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  margin-bottom: 0.3em;
+  margin-top: 0.1em;
+  flex-wrap: wrap;
+}
+.type-row {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+.icon-type {
+  margin-right: 0.2em;
+  vertical-align: middle;
+}
+.type-label {
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 0.98em;
+}
+.category-row {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+.icon-category {
+  margin-right: 0.2em;
+  vertical-align: middle;
+}
+.category-label {
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 0.98em;
 }
 .article-link {
   display: block;
