@@ -2,7 +2,7 @@
   <div class="filter-bar">
     <select v-model="selected.category" @change="emitChange">
       <option value="">All Categories</option>
-      <option v-for="cat in categories" :key="cat" :value="cat">{{ cat }}</option>
+      <option v-for="cat in categories" :key="cat.id" :value="cat.id">{{ cat.name }}</option>
     </select>
     <select v-model="selected.type" @change="emitChange">
       <option value="">All Types</option>
@@ -29,6 +29,29 @@ const props = defineProps({
 });
 const emit = defineEmits(['filter-change']);
 const selected = reactive({ category: '', type: '', author: '', tag: '' });
+
+// Watch for prop changes to reset dropdowns when filters are cleared
+watch(
+  () => [props.categories, props.types, props.authors, props.tags],
+  () => {
+    selected.category = '';
+    selected.type = '';
+    selected.author = '';
+    selected.tag = '';
+  }
+);
+
+// Also watch for an explicit reset event from parent (if needed)
+watch(
+  () => [props.categories.length, props.types.length, props.authors.length, props.tags.length],
+  () => {
+    selected.category = '';
+    selected.type = '';
+    selected.author = '';
+    selected.tag = '';
+  }
+);
+
 function emitChange() {
   emit('filter-change', { ...selected });
 }

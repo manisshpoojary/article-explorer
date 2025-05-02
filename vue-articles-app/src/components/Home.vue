@@ -37,8 +37,17 @@ const filters = ref({ category: '', type: '', author: '', tag: '' });
 const loadData = async () => {
   const homePageResp = await fetch('/src/mock-data/homePage.json').then(r => r.json());
   const articlesData = homePageResp.data.articles;
+
+  // Update categories to use category objects for mapping
+  const catResp = await fetch('/src/mock-data/categories.json').then(r => r.json());
+  const categoryObjs = catResp.data.categories || [];
+  categories.value = categoryObjs;
+
+  // When mapping articles, add categoryName for display
   articles.value = articlesData.map(article => ({
+    ...article,
     id: article.articleId,
+    categoryName: (categoryObjs.find(c => c.id === article.categoryId) || {}).name || article.categoryId,
     title: article.title,
     subtitle: article.subtitle,
     hero: article.hero,
@@ -48,7 +57,6 @@ const loadData = async () => {
     type: article.articleType,
     tags: article.tags || []
   }));
-  categories.value = [...new Set(articlesData.map(a => a.categoryId))];
   authors.value = [...new Set(articlesData.map(a => a.authorName))];
   types.value = [...new Set(articlesData.map(a => a.articleType))];
   tags.value = [...new Set(articlesData.flatMap(a => a.tags || []))];
@@ -86,7 +94,7 @@ const activeFilters = computed(() => {
   const filtersArr = [];
   if (filters.value.category) {
     // Map categoryId to name
-    const cat = categories.value.find(c => c === filters.value.category || c.id === filters.value.category);
+    const cat = categories.value.find(c => c.id === filters.value.category);
     filtersArr.push({ label: 'Category', value: cat?.name || filters.value.category });
   }
   if (filters.value.type) {
@@ -137,7 +145,10 @@ function clearTypeFilter() {
 
 function clearAllFilters() {
   filters.value = { category: '', type: '', author: '', tag: '' };
-  router.push({ name: 'Home' });
+  // Use router.replace to reset the route and trigger watcher
+  router.replace({ name: 'Home' });
+  // Optionally, reload data to ensure dropdowns update
+  loadData();
 }
 
 onMounted(loadData);
