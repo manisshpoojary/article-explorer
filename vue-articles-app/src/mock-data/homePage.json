@@ -106,6 +106,18 @@
       "articleType": "video",
       "mediaUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
       "tags": ["DevOps", "Kubernetes", "Video"]
+    },
+    {
+      "title": "React Fundamentals in 10 Minutes (Video)",
+      "subtitle": "A concise video guide to React basics for beginners.",
+      "hero": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
+      "articleId": "video-react-2025",
+      "categoryId": "frontend",
+      "authorId": "author10",
+      "authorName": "Suresh Nair",
+      "articleType": "video",
+      "mediaUrl": "https://www.w3schools.com/html/movie.mp4",
+      "tags": ["React", "Frontend", "Video", "Tutorial"]
     }
   ]
 }

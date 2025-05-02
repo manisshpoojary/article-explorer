@@ -277,6 +277,36 @@
         { "user": "Neha Kulkarni", "comment": "Very helpful Kubernetes video!", "date": "2025-05-03" },
         { "user": "Rahul Verma", "comment": "Great for beginners.", "date": "2025-05-03" }
       ]
+    },
+    {
+      "articleId": "video-react-2025",
+      "published": "2025-05-05 09:00",
+      "author": {
+        "authorId": "author10",
+        "authorImage": "https://randomuser.me/api/portraits/men/70.jpg",
+        "authorName": "Suresh Nair",
+        "authorBio": "Suresh Nair is a frontend architect and React educator from Kochi, India. He creates video tutorials on modern web frameworks."
+      },
+      "category": {
+        "categoryId": "frontend",
+        "categoryName": "Frontend Development"
+      },
+      "tags": ["React", "Frontend", "Video", "Tutorial"],
+      "title": "React Fundamentals in 10 Minutes (Video)",
+      "subtitle": "A concise video guide to React basics for beginners.",
+      "hero": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
+      "mediaUrl": "https://www.w3schools.com/html/movie.mp4",
+      "description": "<p>This video covers the essentials of React, including components, props, and state. Perfect for developers starting with React or looking for a quick refresher.</p>",
+      "summary": "A short video tutorial on React fundamentals for new developers.",
+      "articleType": "video",
+      "relatedArticles": [
+        { "articleId": "video-vue-2025", "title": "Getting Started with Vue 3 (Video)" },
+        { "articleId": "a2b448sq", "title": "GitHub Copilot - About, Features and Use Cases" }
+      ],
+      "comments": [
+        { "user": "Priya Singh", "comment": "Very clear React intro!", "date": "2025-05-05" },
+        { "user": "Rajesh Kumar", "comment": "Great for absolute beginners.", "date": "2025-05-05" }
+      ]
     }
   ]
 }
