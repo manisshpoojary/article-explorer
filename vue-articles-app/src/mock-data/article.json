@@ -170,6 +170,29 @@
       "description": "<p>Machine learning is revolutionizing agriculture in India, enabling farmers to make data-driven decisions and improve crop yields. By analyzing weather patterns, soil conditions, and historical data, machine learning models can provide valuable insights for planting, irrigation, and pest control.\n\nThe adoption of machine learning in agriculture is helping to address challenges like climate change, resource scarcity, and food security. Farmers can use AI-powered tools to optimize resource usage, reduce waste, and increase profitability. Government initiatives and private sector investments are accelerating the adoption of these technologies across the country.\n\nWhile there are challenges to overcome, such as access to technology and training, the benefits of machine learning in agriculture are clear. Continued research and collaboration will be key to unlocking the full potential of AI and machine learning in India's agricultural sector.</p>",
       "summary": "How machine learning is transforming agriculture in India.",
       "articleType": 1
+    },
+    {
+      "articleId": "devops2025",
+      "published": "2025-05-03 10:00",
+      "author": {
+        "authorId": "author6",
+        "authorImage": "https://randomuser.me/api/portraits/women/65.jpg",
+        "authorName": "Neha Kulkarni",
+        "authorBio": "Neha Kulkarni is a DevOps engineer and automation specialist from Pune, India. She writes about CI/CD, cloud, and modern software delivery."
+      },
+      "category": {
+        "categoryId": "devops",
+        "categoryName": "DevOps"
+      },
+      "tags": ["DevOps", "Automation", "CI/CD"],
+      "title": "DevOps in Modern Software Engineering",
+      "subtitle": "How DevOps practices accelerate delivery and reliability.",
+      "hero": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80",
+      "description": "<p>DevOps is transforming how teams deliver software by bridging the gap between development and operations. With automation, CI/CD pipelines, and a culture of collaboration, DevOps enables faster releases, higher quality, and more reliable systems. In this article, we explore the core principles of DevOps, popular tools, and real-world use cases for modern engineering teams.</p>",
+      "summary": "DevOps accelerates software delivery and reliability through automation and collaboration.",
+      "articleType": 1,
+      "relatedArticles": [],
+      "comments": []
     }
   ]
 }

@@ -83,6 +83,17 @@
       "authorName": "Amit Sharma",
       "articleType": 1,
       "tags": ["Machine Learning", "Agriculture", "India"]
+    },
+    {
+      "title": "DevOps in Modern Software Engineering",
+      "subtitle": "How DevOps practices accelerate delivery and reliability.",
+      "hero": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80",
+      "articleId": "devops2025",
+      "categoryId": "devops",
+      "authorId": "author6",
+      "authorName": "Neha Kulkarni",
+      "articleType": 1,
+      "tags": ["DevOps", "Automation", "CI/CD"]
     }
   ]
 }
