@@ -29,15 +29,14 @@
       </template>
     </div>
     <div v-if="article.type !== 'video'" class="text-article-header">
-      <img v-if="article.authorImage" :src="article.authorImage" class="text-article-author-img" alt="author" />
+      <div class="text-article-author-block">
+        <img v-if="article.authorImage" :src="article.authorImage" class="text-article-author-img" alt="author" />
+        <div class="text-article-author-name" @click="goToAuthor(article.authorName)" style="cursor:pointer;">{{ article.authorName }}</div>
+      </div>
       <div class="text-article-title-block">
         <h1 class="detail-title">{{ article.title }}</h1>
         <div class="subtitle">{{ article.subtitle }}</div>
         <div class="meta">
-          <span class="author-link" @click="goToAuthor(article.authorName)">
-            <svg class="icon-user" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#2563eb"/><path d="M4 20c0-2.21 3.58-4 8-4s8 1.79 8 4" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/></svg>
-            {{ article.authorName }}
-          </span>
           <span v-if="categoryName" class="category-link" @click="goToCategory(article.categoryId)">
             <svg class="icon-category" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2" fill="#16a34a"/><rect x="14" y="3" width="7" height="7" rx="2" fill="#16a34a"/><rect x="14" y="14" width="7" height="7" rx="2" fill="#16a34a"/><rect x="3" y="14" width="7" height="7" rx="2" fill="#16a34a"/></svg>
             {{ categoryName }}
@@ -162,11 +161,21 @@ function goBack() {
   margin-bottom: 1.2em;
 }
 .detail-hero {
-  width: 70%;
-  max-height: 260px;
+  width: 100%;
+  max-width: 100%;
+  height: 340px;
+  max-height: 400px;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 18px;
   box-shadow: 0 2px 12px rgba(60,60,60,0.10);
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .detail-hero {
+    height: 200px;
+    max-height: 220px;
+  }
 }
 .author-avatar-block {
   display: flex;
@@ -562,8 +571,8 @@ function goBack() {
     gap: 0.7em;
   }
   .text-article-author-img {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
   }
 }
 .text-article-header {
@@ -572,15 +581,28 @@ function goBack() {
   gap: 1.3em;
   margin-bottom: 1.2em;
 }
+.text-article-author-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
 .text-article-author-img {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #2563eb;
   box-shadow: 0 2px 8px rgba(60,60,60,0.10);
   background: #f0f4ff;
   flex-shrink: 0;
+}
+.text-article-author-name {
+  font-weight: 700;
+  color: #2563eb;
+  font-size: 1.08em;
+  text-align: center;
+  margin-top: 0.2em;
 }
 .text-article-title-block {
   flex: 1;
