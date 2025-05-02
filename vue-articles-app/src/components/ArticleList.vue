@@ -2,19 +2,21 @@
   <div>
     <div v-if="articles.length === 0">No articles found.</div>
     <ul v-else>
-      <li v-for="article in articles" :key="article.id" class="article-item" @click="goToDetail(article.articleId)" style="cursor:pointer;">
-        <div class="article-row">
-          <img v-if="article.hero" :src="article.hero" alt="hero" class="hero-img" />
-          <div class="article-content">
-            <h3>{{ article.title }}</h3>
-            <div v-if="article.subtitle" class="subtitle">{{ article.subtitle }}</div>
-            <p>By {{ article.authorName || article.author || article.authorId || 'Unknown' }} | {{ article.type || 'N/A' }} | {{ article.category || article.categoryId || 'N/A' }}</p>
-            <div v-if="article.tags && article.tags.length">
-              <span v-for="tag in article.tags" :key="tag" class="tag">#{{ tag }}</span>
+      <li v-for="article in articles" :key="article.id" class="article-item">
+        <router-link :to="{ name: 'ArticleDetail', params: { articleId: article.id } }" class="article-link">
+          <div class="article-row">
+            <img v-if="article.hero" :src="article.hero" alt="hero" class="hero-img" />
+            <div class="article-content">
+              <h3>{{ article.title }}</h3>
+              <div v-if="article.subtitle" class="subtitle">{{ article.subtitle }}</div>
+              <p>By {{ article.authorName || article.author || article.authorId || 'Unknown' }} | {{ article.type || 'N/A' }} | {{ article.category || article.categoryId || 'N/A' }}</p>
+              <div v-if="article.tags && article.tags.length">
+                <span v-for="tag in article.tags" :key="tag" class="tag">#{{ tag }}</span>
+              </div>
+              <p>{{ article.summary || article.description || (article.content ? article.content.slice(0, 100) + '...' : '') }}</p>
             </div>
-            <p>{{ article.summary || article.description || (article.content ? article.content.slice(0, 100) + '...' : '') }}</p>
           </div>
-        </div>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -108,6 +110,14 @@ p {
   color: #3b82f6;
   font-weight: 500;
   display: inline-block;
+}
+.article-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.article-link:visited {
+  color: inherit;
 }
 @media (max-width: 600px) {
   .article-row {
