@@ -2,6 +2,7 @@
   <div class="active-filters" v-if="activeFilters.length">
     <span v-for="filter in activeFilters" :key="filter.label" class="active-filter">
       {{ filter.label }}: <strong>{{ filter.value }}</strong>
+      <span v-if="filter.label === 'Tag'" class="clear-icon" @click="clearTagFilter">✕</span>
     </span>
   </div>
   <FilterBar
@@ -16,11 +17,12 @@
 
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import ArticleList from './ArticleList.vue';
 import FilterBar from './FilterBar.vue';
 
 const route = useRoute();
+const router = useRouter();
 const articles = ref([]);
 const categories = ref([]);
 const authors = ref([]);
@@ -97,7 +99,22 @@ const activeFilters = computed(() => {
 
 const onFilterChange = (newFilters) => {
   filters.value = { ...filters.value, ...newFilters };
+  // Update the route to reflect the selected filter
+  if (newFilters.tag) {
+    router.push({ name: 'TagArticles', params: { tag: newFilters.tag } });
+  } else if (newFilters.category) {
+    router.push({ name: 'CategoryArticles', params: { categoryId: newFilters.category } });
+  } else if (newFilters.author) {
+    router.push({ name: 'AuthorArticles', params: { author: newFilters.author } });
+  } else {
+    router.push({ name: 'Home' });
+  }
 };
+
+function clearTagFilter() {
+  filters.value = { ...filters.value, tag: '' };
+  router.push({ name: 'Home' });
+}
 
 onMounted(loadData);
 </script>
@@ -118,5 +135,16 @@ onMounted(loadData);
   padding: 0.3em 1em;
   font-weight: 500;
   box-shadow: 0 1px 3px rgba(60,60,60,0.04);
+}
+.clear-icon {
+  margin-left: 0.5em;
+  cursor: pointer;
+  color: #2563eb;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: color 0.2s;
+}
+.clear-icon:hover {
+  color: #1d4ed8;
 }
 </style>
