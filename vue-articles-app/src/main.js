@@ -16,6 +16,7 @@ const routes = [
   { path: '/tags/:tag', name: 'TagArticles', component: Home, props: true },
   { path: '/about', name: 'About', component: About },
   { path: '/article/:articleId', name: 'ArticleDetail', component: ArticleDetail, props: true },
+  { path: '/authors/:author', name: 'AuthorArticles', component: Home, props: true },
   { path: '/:catchAll(.*)', redirect: '/' }
 ];
 
