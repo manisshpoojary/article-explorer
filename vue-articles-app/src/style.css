@@ -26,7 +26,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  min-width: 0;
   min-height: 100vh;
   background: linear-gradient(120deg, #f0f4ff 0%, #f8fafc 100%);
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
@@ -63,7 +63,7 @@ button:focus-visible {
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
   min-height: 100vh;
 }
@@ -78,5 +78,43 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 600px) {
+  #app {
+    padding: 0.5rem 0.2rem;
+  }
+}
+
+/* iPhone 15/Pro/Pro Max specific tweaks (430px width) */
+@media (max-width: 450px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.7em 0.5em;
+    gap: 0.5em;
+    font-size: 0.98em;
+  }
+  .navbar-title {
+    font-size: 1.1em;
+  }
+  .navbar-links {
+    gap: 0.7em;
+    font-size: 0.98em;
+  }
+  .article-item {
+    padding: 0.7em 0.3em;
+    margin-bottom: 1em;
+  }
+  .hero-img {
+    height: 120px;
+    max-height: 120px;
+  }
+  .article-content h3 {
+    font-size: 1.05em;
+  }
+  .subtitle {
+    font-size: 0.98em;
   }
 }

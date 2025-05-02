@@ -78,10 +78,6 @@ onMounted(loadData);
       :tags="tags"
       @filter-change="onFilterChange"
     />
-    <button @click="refreshArticles" :disabled="isRefreshing">
-      <span v-if="isRefreshing">Refreshing...</span>
-      <span v-else>Refresh</span>
-    </button>
     <ArticleList :articles="filteredArticles" />
   </div>
 </template>

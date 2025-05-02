@@ -38,11 +38,40 @@ function emitChange() {
 .filter-bar {
   display: flex;
   gap: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  flex-wrap: wrap;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(60,60,60,0.07);
+  padding: 0.7em 1em;
+  align-items: center;
 }
 select {
-  padding: 0.5em;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  padding: 0.5em 1.2em 0.5em 0.7em;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #f8fafc;
+  color: #222;
+  font-size: 1em;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(60,60,60,0.04);
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+  margin-right: 0.5em;
+}
+select:focus {
+  border: 1.5px solid #3b82f6;
+  box-shadow: 0 0 0 2px #e0e7ff;
+}
+@media (max-width: 600px) {
+  .filter-bar {
+    flex-direction: column;
+    gap: 0.7em;
+    padding: 0.7em 0.5em;
+  }
+  select {
+    width: 100%;
+    margin-right: 0;
+  }
 }
 </style>
