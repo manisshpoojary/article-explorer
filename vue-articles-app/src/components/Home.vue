@@ -31,11 +31,13 @@ const loadData = async () => {
     hero: article.hero,
     categoryId: article.categoryId,
     authorId: article.authorId,
+    authorName: article.authorName,
     type: article.articleType,
     tags: article.tags || []
   }));
   categories.value = [...new Set(articlesData.map(a => a.categoryId))];
-  authors.value = [...new Set(articlesData.map(a => a.authorId))];
+  // Fix: Only show unique author names for filter
+  authors.value = [...new Set(articlesData.map(a => a.authorName))];
   types.value = [...new Set(articlesData.map(a => a.articleType))];
   // Fix: Only show unique tags, flattening all tags from all articles
   tags.value = [...new Set(articlesData.flatMap(a => a.tags || []))];
@@ -47,7 +49,7 @@ const filteredArticles = computed(() => {
     return (
       (!category || article.categoryId === category) &&
       (!type || article.type === type) &&
-      (!author || article.authorId === author) &&
+      (!author || article.authorName === author) &&
       (!tag || (article.tags && article.tags.includes(tag)))
     );
   });

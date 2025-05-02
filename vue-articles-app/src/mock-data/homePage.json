@@ -13,7 +13,8 @@
     "hero": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
     "articleId": "a2b448sq",
     "categoryId": "ai",
-    "authorId": "y7w3w242",
+    "authorId": "author1",
+    "authorName": "Amit Sharma",
     "articleType": 1,
     "tags": ["Science", "Technology"]
   },
@@ -23,7 +24,8 @@
     "hero": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80",
     "articleId": "b2n2ss92",
     "categoryId": "ai",
-    "authorId": "n7232g2",
+    "authorId": "author2",
+    "authorName": "Priya Singh",
     "articleType": 1,
     "tags": ["Science", "Technology"]
   },
@@ -33,7 +35,8 @@
       "hero": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
       "articleId": "c3g4h5j6",
       "categoryId": "ai",
-      "authorId": "openai123",
+      "authorId": "author3",
+      "authorName": "Rahul Verma",
       "articleType": 2,
       "tags": ["AI", "Language Model"]
     },
@@ -43,7 +46,8 @@
       "hero": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
       "articleId": "d4e5f6g7",
       "categoryId": "edge",
-      "authorId": "techwriter1",
+      "authorId": "author4",
+      "authorName": "Sneha Iyer",
       "articleType": 1,
       "tags": ["Edge", "Technology"]
     },
@@ -53,9 +57,32 @@
       "hero": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
       "articleId": "e5f6g7h8",
       "categoryId": "quantum",
-      "authorId": "quantumguru",
+      "authorId": "author5",
+      "authorName": "Vikram Patel",
       "articleType": 3,
       "tags": ["Quantum", "Science"]
+    },
+    {
+      "title": "AI in Indian Healthcare: Opportunities and Challenges",
+      "subtitle": "How artificial intelligence is transforming healthcare in India.",
+      "hero": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=400&q=80",
+      "articleId": "amit1",
+      "categoryId": "ai",
+      "authorId": "author1",
+      "authorName": "Amit Sharma",
+      "articleType": 2,
+      "tags": ["AI", "Healthcare", "India"]
+    },
+    {
+      "title": "Machine Learning for Agriculture in India",
+      "subtitle": "Exploring the impact of ML on Indian agriculture and food security.",
+      "hero": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
+      "articleId": "amit2",
+      "categoryId": "datasci",
+      "authorId": "author1",
+      "authorName": "Amit Sharma",
+      "articleType": 1,
+      "tags": ["Machine Learning", "Agriculture", "India"]
     }
   ]
 }
