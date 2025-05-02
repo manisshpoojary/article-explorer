@@ -26,7 +26,10 @@ const props = defineProps({
   types: Array,
   authors: Array,
   tags: Array,
-  filters: Object // Accept filters as a prop for controlled state
+  filters: {
+    type: Object,
+    default: () => ({ category: '', type: '', author: '', tag: '' })
+  }
 });
 const emit = defineEmits(['filter-change']);
 const selected = reactive({ category: '', type: '', author: '', tag: '' });
